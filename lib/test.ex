@@ -1,6 +1,6 @@
 defmodule Test do
-  #use Effects, TestInterpreter
-  use Effects, ProdInterpreter
+  use Effects, TestInterpreter
+  #use Effects, ProdInterpreter
 
   def f do
     s1 = effect(Service.cat("a"))

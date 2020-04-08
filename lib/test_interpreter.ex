@@ -1,6 +1,11 @@
 defmodule TestInterpreter do
   def effect(ast) do
-    IO.inspect(ast, label: "AST")
+    {ast, _acc} =
+      Macro.prewalk(ast, %{}, fn e, acc ->
+        IO.inspect(e, label: "L")
+        {e, acc}
+      end)
+
     ast
   end
 end
